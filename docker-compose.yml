@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  nova-unzip-bot:
+    build: .
+    container_name: nova_unzip_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./downloads:/app/downloads
+    deploy:
+      resources:
+        limits:
+          memory: 4096M
